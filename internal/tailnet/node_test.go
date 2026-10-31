@@ -150,7 +150,7 @@ func TestPersistentNodeLifecycle(t *testing.T) {
 		}
 		return b
 	}
-	if err := n.Enable(Config{Hostname: "omarchy-rex"}, "one-use-secret"); err != nil {
+	if err := n.Enable(Config{Hostname: "rex-linux"}, "one-use-secret"); err != nil {
 		t.Fatal(err)
 	}
 	if err := n.Login(context.Background()); err != nil {
@@ -162,7 +162,7 @@ func TestPersistentNodeLifecycle(t *testing.T) {
 	if err := n.Enable(Config{Hostname: "ignored", AllowTailnetMembers: true}, "ignored-key"); err != nil {
 		t.Fatal(err)
 	}
-	if starts != 1 || n.Config().Hostname != "omarchy-rex" || !n.Status().AllowTailnetMembers {
+	if starts != 1 || n.Config().Hostname != "rex-linux" || !n.Status().AllowTailnetMembers {
 		t.Fatalf("enable restarted or renamed an existing node")
 	}
 	if err := n.Rename(context.Background(), "renamed-rex"); err != nil {

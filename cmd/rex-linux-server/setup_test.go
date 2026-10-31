@@ -14,7 +14,7 @@ func TestEnrollmentProgress(t *testing.T) {
 		{State: "needs_login", AuthURL: "https://login.tailscale.com/a/test"},
 		{State: "needs_login", AuthURL: "https://login.tailscale.com/a/test"},
 		{State: "needs_machine_approval"},
-		{State: "running", HTTPS: &tailnet.HTTPSStatus{State: "available", URL: "https://omarchy-rex.tail.test"}},
+		{State: "running", HTTPS: &tailnet.HTTPSStatus{State: "available", URL: "https://rex-linux.tail.test"}},
 	}
 	i := 0
 	var out bytes.Buffer
@@ -25,7 +25,7 @@ func TestEnrollmentProgress(t *testing.T) {
 		}
 		return s
 	}, &out)
-	if err != nil || url != "https://omarchy-rex.tail.test" {
+	if err != nil || url != "https://rex-linux.tail.test" {
 		t.Fatalf("URL=%q error=%v", url, err)
 	}
 	if strings.Count(out.String(), "https://login.tailscale.com/a/test") != 1 || !strings.Contains(out.String(), "administrator") {

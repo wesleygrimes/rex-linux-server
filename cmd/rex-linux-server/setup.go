@@ -34,7 +34,7 @@ func flagWasSet(flags *flag.FlagSet, name string) bool {
 func runSetup(args []string) error {
 	flags := flag.NewFlagSet("rex-linux-server setup", flag.ContinueOnError)
 	dir := flags.String("state-dir", defaultStateDir(), "state directory used by the server service")
-	hostname := flags.String("tailscale-hostname", "", "server name (default omarchy-rex, or the saved name)")
+	hostname := flags.String("tailscale-hostname", "", "server name (default rex-linux, or the saved name)")
 	if err := flags.Parse(args); err != nil {
 		return err
 	}
@@ -55,7 +55,7 @@ func runSetup(args []string) error {
 	if *hostname != "" {
 		config.Hostname = *hostname
 	} else if config.Hostname == "" {
-		config.Hostname = "omarchy-rex"
+		config.Hostname = "rex-linux"
 	}
 	if err := node.Enable(config, ""); err != nil {
 		return err

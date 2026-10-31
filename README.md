@@ -100,3 +100,7 @@ reboots. The state directory stores the server identity and Tailscale credential
 [Development](docs/development.md) covers the build environment and tests.
 [Protocol](docs/protocol.md) describes the control and terminal streams.
 [Configuration](docs/configuration.md) covers Lua, host records and block plugins.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
