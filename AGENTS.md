@@ -1,4 +1,4 @@
-# Project guidance
+# Tuxosaurus project guidance
 
 Build and test commands are in [Development](docs/development.md).
 

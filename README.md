@@ -1,4 +1,4 @@
-# Rex Linux server
+# Tuxosaurus
 
 Run Rex terminal sessions on Linux from your Mac.
 
@@ -35,10 +35,10 @@ Build with that version to keep snapshots compatible.
 On the Linux host, install the executable and enroll it in Tailscale:
 
 ```sh
-install -Dm755 "bin/rex-linux-server-linux-$(go env GOARCH)" "$HOME/.local/bin/rex-linux-server"
-~/.local/bin/rex-linux-server setup \
-  --state-dir "$HOME/.local/state/rex-linux-server" \
-  --tailscale-hostname rex-linux
+install -Dm755 "bin/tuxosaurus-linux-$(go env GOARCH)" "$HOME/.local/bin/tuxosaurus"
+~/.local/bin/tuxosaurus setup \
+  --state-dir "$HOME/.local/state/tuxosaurus" \
+  --tailscale-hostname tuxosaurus
 ```
 
 Open the authorization link on any device and sign in with the Tailscale account
@@ -59,18 +59,18 @@ identified peers allowed by the tailnet's ACLs.
 For a foreground server:
 
 ```sh
-~/.local/bin/rex-linux-server \
-  --listen "unix://$HOME/.local/state/rex-linux-server/server.sock" \
-  --state-dir "$HOME/.local/state/rex-linux-server" \
+~/.local/bin/tuxosaurus \
+  --listen "unix://$HOME/.local/state/tuxosaurus/server.sock" \
+  --state-dir "$HOME/.local/state/tuxosaurus" \
   --shell /bin/bash
 ```
 
 For a systemd user service:
 
 ```sh
-install -Dm644 deploy/rex-linux-server.service "$HOME/.config/systemd/user/rex-linux-server.service"
+install -Dm644 deploy/tuxosaurus.service "$HOME/.config/systemd/user/tuxosaurus.service"
 systemctl --user daemon-reload
-systemctl --user enable --now rex-linux-server.service
+systemctl --user enable --now tuxosaurus.service
 ```
 
 The service starts with the user's systemd manager and runs as that user. It
@@ -87,9 +87,9 @@ on loopback; anyone who can reach that listener has shell access.
 To inspect or stop the service:
 
 ```sh
-systemctl --user status rex-linux-server.service
-journalctl --user -u rex-linux-server.service
-systemctl --user stop rex-linux-server.service
+systemctl --user status tuxosaurus.service
+journalctl --user -u tuxosaurus.service
+systemctl --user stop tuxosaurus.service
 ```
 
 Sessions survive client disconnects. They end when the server stops or the machine

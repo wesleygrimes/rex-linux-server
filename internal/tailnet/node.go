@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	"rex-linux-server/internal/identity"
+	"github.com/wesleygrimes/tuxosaurus/internal/identity"
 
 	"tailscale.com/client/tailscale/apitype"
 	"tailscale.com/ipn/ipnstate"
@@ -201,7 +201,7 @@ func (n *Node) Enable(c Config, authKey string) error {
 		c.Hostname = n.config.Hostname
 	}
 	if c.Hostname == "" {
-		c.Hostname = "rex"
+		c.Hostname = "tuxosaurus"
 	}
 	n.mu.Unlock()
 	c.Enabled = true

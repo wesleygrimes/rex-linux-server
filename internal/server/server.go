@@ -12,9 +12,6 @@ import (
 	"os"
 	"os/user"
 	"path/filepath"
-	"rex-linux-server/internal/identity"
-	"rex-linux-server/internal/state"
-	"rex-linux-server/internal/tailnet"
 	"runtime"
 	"strings"
 	"sync"
@@ -22,6 +19,10 @@ import (
 
 	"github.com/coder/websocket"
 	"github.com/coder/websocket/wsjson"
+
+	"github.com/wesleygrimes/tuxosaurus/internal/identity"
+	"github.com/wesleygrimes/tuxosaurus/internal/state"
+	"github.com/wesleygrimes/tuxosaurus/internal/tailnet"
 )
 
 type object = map[string]any
@@ -211,7 +212,7 @@ func (s *Server) Handler() http.Handler {
 	})
 	mux.HandleFunc("GET /llms.html", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		fmt.Fprintf(w, "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Rex Linux server API</title><body><pre>%s</pre></body></html>", html.EscapeString(string(apiGuide)))
+		fmt.Fprintf(w, "<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Tuxosaurus API</title><body><pre>%s</pre></body></html>", html.EscapeString(string(apiGuide)))
 	})
 	return mux
 }

@@ -73,5 +73,5 @@ exec "$ZIG" cc -target "$REX_ZIG_TARGET" -Wno-error=unused-command-line-argument
 SH
   chmod +x "$CC"
 fi
-go build -trimpath -o "$root/bin/rex-linux-server-$target" ./cmd/rex-linux-server
-echo "$root/bin/rex-linux-server-$target"
+go build -trimpath -o "$root/bin/tuxosaurus-$target" ./cmd/tuxosaurus
+echo "$root/bin/tuxosaurus-$target"

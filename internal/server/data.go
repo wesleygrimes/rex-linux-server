@@ -6,11 +6,12 @@ import (
 	"encoding/base64"
 	"encoding/binary"
 	"net/http"
-	"rex-linux-server/internal/identity"
 	"sync"
 	"time"
 
 	"github.com/coder/websocket"
+
+	"github.com/wesleygrimes/tuxosaurus/internal/identity"
 )
 
 const replayBytes = 8 << 20

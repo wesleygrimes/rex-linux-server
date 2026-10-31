@@ -13,16 +13,16 @@ import (
 	"syscall"
 	"time"
 
-	"rex-linux-server/internal/state"
-	"rex-linux-server/internal/tailnet"
+	"github.com/wesleygrimes/tuxosaurus/internal/state"
+	"github.com/wesleygrimes/tuxosaurus/internal/tailnet"
 )
 
 func defaultStateDir() string {
 	if dir := os.Getenv("XDG_STATE_HOME"); filepath.IsAbs(dir) {
-		return filepath.Join(dir, "rex-linux-server")
+		return filepath.Join(dir, "tuxosaurus")
 	}
 	home, _ := os.UserHomeDir()
-	return filepath.Join(home, ".local", "state", "rex-linux-server")
+	return filepath.Join(home, ".local", "state", "tuxosaurus")
 }
 
 func flagWasSet(flags *flag.FlagSet, name string) bool {
@@ -32,9 +32,9 @@ func flagWasSet(flags *flag.FlagSet, name string) bool {
 }
 
 func runSetup(args []string) error {
-	flags := flag.NewFlagSet("rex-linux-server setup", flag.ContinueOnError)
+	flags := flag.NewFlagSet("tuxosaurus setup", flag.ContinueOnError)
 	dir := flags.String("state-dir", defaultStateDir(), "state directory used by the server service")
-	hostname := flags.String("tailscale-hostname", "", "server name (default rex-linux, or the saved name)")
+	hostname := flags.String("tailscale-hostname", "", "server name (default tuxosaurus, or the saved name)")
 	if err := flags.Parse(args); err != nil {
 		return err
 	}
@@ -55,7 +55,7 @@ func runSetup(args []string) error {
 	if *hostname != "" {
 		config.Hostname = *hostname
 	} else if config.Hostname == "" {
-		config.Hostname = "rex-linux"
+		config.Hostname = "tuxosaurus"
 	}
 	if err := node.Enable(config, ""); err != nil {
 		return err

@@ -40,7 +40,7 @@ checks input, layouts, clipboard transfers, status events, snapshots, and replay
 
 ```sh
 go test ./internal/protocol -run '^TestCompatibility$' -count=1 -args \
-  -server-binary "$PWD/bin/rex-linux-server-$(go env GOOS)-$(go env GOARCH)"
+  -server-binary "$PWD/bin/tuxosaurus-$(go env GOOS)-$(go env GOARCH)"
 ```
 
 The plugin suite builds its own executable fixture. Resource and startup checks
@@ -48,7 +48,7 @@ also launch isolated servers:
 
 ```sh
 go test ./internal/protocol -run '^TestBlockPlugins$|^TestResourceLimits$|^TestRunOptions$' -count=1 -args \
-  -server-binary "$PWD/bin/rex-linux-server-$(go env GOOS)-$(go env GOARCH)"
+  -server-binary "$PWD/bin/tuxosaurus-$(go env GOOS)-$(go env GOARCH)"
 ```
 
 `TestRunOptions` waits through the 60-second control reconnect window. Add
@@ -69,7 +69,7 @@ independent snapshot decoder:
 
 ```sh
 go test ./internal/protocol -run '^TestCompatibility$' -count=1 -args \
-  -server-binary "$PWD/bin/rex-linux-server-$(go env GOOS)-$(go env GOARCH)" \
+  -server-binary "$PWD/bin/tuxosaurus-$(go env GOOS)-$(go env GOARCH)" \
   -rex-binary '/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex'
 ```
 

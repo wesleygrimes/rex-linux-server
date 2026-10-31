@@ -17,8 +17,8 @@ import (
 	"syscall"
 	"time"
 
-	"rex-linux-server/internal/identity"
-	"rex-linux-server/internal/server"
+	"github.com/wesleygrimes/tuxosaurus/internal/identity"
+	"github.com/wesleygrimes/tuxosaurus/internal/server"
 )
 
 func main() {
@@ -35,7 +35,7 @@ func run(args []string) error {
 	if len(args) > 0 && args[0] == "setup" {
 		return runSetup(args[1:])
 	}
-	flag := flag.NewFlagSet("rex-linux-server", flag.ContinueOnError)
+	flag := flag.NewFlagSet("tuxosaurus", flag.ContinueOnError)
 	listen := flag.String("listen", "127.0.0.1:51433", "HTTP listen address, or unix:///path/to/socket")
 	state := flag.String("state-dir", defaultStateDir(), "persistent server state directory")
 	shell := flag.String("shell", "", "default shell (defaults to SHELL, then /bin/sh)")

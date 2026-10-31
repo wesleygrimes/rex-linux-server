@@ -1,4 +1,4 @@
-Rex Linux server API
+Tuxosaurus API
 
 GET /api/help returns the control methods and installed block APIs as JSON.
 

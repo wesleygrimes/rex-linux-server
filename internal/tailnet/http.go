@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"rex-linux-server/internal/identity"
+	"github.com/wesleygrimes/tuxosaurus/internal/identity"
 )
 
 func (n *Node) serveHTTP(g *generation, listener net.Listener) error {

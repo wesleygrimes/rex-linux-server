@@ -1,4 +1,4 @@
-module rex-linux-server
+module github.com/wesleygrimes/tuxosaurus
 
 go 1.26.6
 

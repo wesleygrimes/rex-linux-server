@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"rex-linux-server/internal/identity"
-	"rex-linux-server/internal/tailnet"
+	"github.com/wesleygrimes/tuxosaurus/internal/identity"
+	"github.com/wesleygrimes/tuxosaurus/internal/tailnet"
 )
 
 // Unix socket access is protected by its filesystem permissions. Only that
