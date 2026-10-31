@@ -12,6 +12,7 @@ Tested with the Rex Beta 0.1.0 (1101) macOS client and a Linux x86-64 server. Se
 ## Build
 
 Requires Go 1.26.6 or newer, Zig 0.16.0, a C compiler, curl, and tar.
+`mise install` installs the pinned Go and Zig versions from `mise.toml`.
 
 ```sh
 # Build on the Linux host.

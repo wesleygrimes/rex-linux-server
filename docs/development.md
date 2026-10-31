@@ -3,7 +3,8 @@
 ## Build environment
 
 Install Go 1.26.6 or newer, Zig 0.16.0, a C compiler, curl, and tar. The protocol
-tests also need Python 3 at `/usr/bin/python3`.
+tests also need Python 3 at `/usr/bin/python3`. `mise install` installs the
+pinned Go and Zig versions from `mise.toml`.
 
 Build the native executable:
 
