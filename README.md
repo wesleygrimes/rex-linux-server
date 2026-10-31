@@ -1,15 +1,58 @@
 # Tuxosaurus
 
-Run Rex terminal sessions on Linux from your Mac.
+Your laptop goes to sleep. Your shells don't have to.
 
-This is an independent, headless server for the Rex macOS client. Shells run in
-Linux PTYs and keep running when the client disconnects. The server joins
-Tailscale as its own device and accepts connections over HTTPS.
+Tuxosaurus is a Linux server for [Rex](https://www.superlogical.com/rex), the
+terminal app for macOS and iOS. Run it on a Linux machine you own, add that
+machine as a host in Rex, and your terminal sessions live on Linux instead of on
+your Mac or iPhone.
 
 Tuxosaurus is not affiliated with or endorsed by Superlogical, the makers of Rex.
 
-Tested with the Rex Beta 0.1.0 (1101) macOS client and a Linux x86-64 server. See
-[Compatibility](docs/compatibility.md) for supported features and limitations.
+## Why use it
+
+Rex keeps sessions on a server. Out of the box, that server is your Mac. With
+Tuxosaurus, it is a Linux box. Close the laptop, lose signal on your phone, or
+switch devices, and the shells keep running. A long build, a dev server or a
+coding agent is still there when you reconnect, from Rex on macOS or on iOS.
+
+## How it works
+
+Tuxosaurus is a headless Go program. Each shell runs in a Linux PTY.
+libghostty-vt tracks the terminal state and produces the screen snapshots Rex
+draws when a client attaches or reconnects.
+
+The server joins Tailscale as its own device, using an embedded Tailscale
+client, so the Linux host does not need the Tailscale daemon installed. Rex
+connects to it over HTTPS on your tailnet. By default, only devices signed in to
+the same Tailscale account that enrolled the server can connect.
+
+Tested with the Rex Beta 0.1.0 (1101) macOS client and the Rex iOS app against
+a Linux x86-64 server. See [Compatibility](docs/compatibility.md) for supported
+features and limitations.
+
+## Quick start
+
+On the Linux machine, with [mise](https://mise.jdx.dev) installed and activated in
+your shell:
+
+```sh
+git clone https://github.com/wesleygrimes/tuxosaurus.git
+cd tuxosaurus
+mise install
+bash scripts/build.sh native
+install -Dm755 "bin/tuxosaurus-linux-$(go env GOARCH)" "$HOME/.local/bin/tuxosaurus"
+~/.local/bin/tuxosaurus setup \
+  --state-dir "$HOME/.local/state/tuxosaurus" \
+  --tailscale-hostname tuxosaurus
+install -Dm644 deploy/tuxosaurus.service "$HOME/.config/systemd/user/tuxosaurus.service"
+systemctl --user daemon-reload
+systemctl --user enable --now tuxosaurus.service
+```
+
+Setup prints a sign-in link and, once you approve it, an HTTPS address. Add
+that address as a remote host in Rex on your Mac or iPhone. The sections below
+explain each step.
 
 ## Build
 
@@ -29,7 +72,7 @@ libghostty-vt, and links it into the server. The Linux executable still uses the
 system C library. The first build can take several minutes; downloads and build
 files stay in `.build/`. `JOBS` defaults to 4.
 
-The pinned terminal library provides the snapshot format used by the Mac client.
+The pinned terminal library provides the snapshot format used by Rex clients.
 Build with that version to keep snapshots compatible.
 
 ## Set up
@@ -44,7 +87,7 @@ install -Dm755 "bin/tuxosaurus-linux-$(go env GOARCH)" "$HOME/.local/bin/tuxosau
 ```
 
 Open the authorization link on any device and sign in with the Tailscale account
-used by the connecting Mac. Setup waits for authorization and any required device
+used by the Mac or iPhone running Rex. Setup waits for authorization and any required device
 approval, then prints the HTTPS address. Tailscale HTTPS certificates must be
 enabled for the tailnet.
 
@@ -80,7 +123,8 @@ uses Bash as a login shell. To start it before login, configure systemd lingerin
 for that account.
 
 In Rex on the Mac, choose **Add Remote Host** and enter the HTTPS address printed
-by setup. Create a session on that host to run commands on Linux.
+by setup. On iPhone, add the same address as a remote host. Create a session on
+that host to run commands on Linux.
 
 The Unix socket checks OS peer credentials for local administration. The supplied
 service also opens an anonymous HTTP listener on `127.0.0.1:51433`. Keep plain HTTP

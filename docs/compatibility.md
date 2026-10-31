@@ -60,9 +60,10 @@ every rule for every application.
 
 The Linux integration suite starts temporary servers and real PTYs. Package tests
 and the macOS integration suite also run with the race detector. Optional Rex CLI
-checks decode snapshots independently. The existing macOS client has previously
-connected over Tailscale, run Linux commands and opened splits; the expanded
-features still need a client smoke test after deployment.
+checks decode snapshots independently. The macOS client has connected over
+Tailscale, run Linux commands and opened splits. The Rex iOS app also connects
+and runs sessions (smoke tested 10/31/2026). The expanded features still need a
+client smoke test after deployment.
 
 See [Development](development.md) for commands. Skipped interoperability checks
 are not passing checks.
