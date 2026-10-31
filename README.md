@@ -50,9 +50,9 @@ systemctl --user daemon-reload
 systemctl --user enable --now tuxosaurus.service
 ```
 
-Setup prints a sign-in link and, once you approve it, an HTTPS address. Add
-that address as a remote host in Rex on your Mac or iPhone. The sections below
-explain each step.
+Setup prints a sign-in link and, once you approve it, an HTTPS address. In Rex
+on your Mac or iPhone, choose **Add Remote Host** and enter that address. The
+sections below explain each step.
 
 ## Build
 
@@ -122,9 +122,8 @@ The service starts with the user's systemd manager and runs as that user. It
 uses Bash as a login shell. To start it before login, configure systemd lingering
 for that account.
 
-In Rex on the Mac, choose **Add Remote Host** and enter the HTTPS address printed
-by setup. On iPhone, add the same address as a remote host. Create a session on
-that host to run commands on Linux.
+In Rex on your Mac or iPhone, choose **Add Remote Host** and enter the HTTPS
+address printed by setup. Create a session on that host to run commands on Linux.
 
 The Unix socket checks OS peer credentials for local administration. The supplied
 service also opens an anonymous HTTP listener on `127.0.0.1:51433`. Keep plain HTTP
