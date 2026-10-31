@@ -6,6 +6,8 @@ This is an independent, headless server for the Rex macOS client. Shells run in
 Linux PTYs and keep running when the client disconnects. The server joins
 Tailscale as its own device and accepts connections over HTTPS.
 
+Tuxosaurus is not affiliated with or endorsed by Superlogical, the makers of Rex.
+
 Tested with the Rex Beta 0.1.0 (1101) macOS client and a Linux x86-64 server. See
 [Compatibility](docs/compatibility.md) for supported features and limitations.
 
