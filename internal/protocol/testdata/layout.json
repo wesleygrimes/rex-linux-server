@@ -1,0 +1,2296 @@
+[
+  {
+    "label": "created",
+    "value": {
+      "initial_windows": [
+        {
+          "block_ids": [
+            "A"
+          ],
+          "revision": 1,
+          "window_id": "W1"
+        },
+        {
+          "block_ids": [
+            "B"
+          ],
+          "revision": 2,
+          "window_id": "W2"
+        }
+      ],
+      "session_id": "SESSION"
+    }
+  },
+  {
+    "label": "initial",
+    "value": {
+      "active_window_id": "W2",
+      "label": "layout probe",
+      "revision": 2,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "focused_block_id": "A",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": {
+                "block_id": "A",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "active": true,
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.focus_window",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 3
+      }
+    }
+  },
+  {
+    "label": "session.new_block",
+    "value": {
+      "error": null,
+      "result": {
+        "block_id": "LOOSE",
+        "revision": 3
+      }
+    }
+  },
+  {
+    "label": "session.list_blocks",
+    "value": {
+      "error": null,
+      "result": {
+        "blocks": [
+          {
+            "block_id": "A",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "a",
+            "placement": "placed",
+            "window_id": "W1"
+          },
+          {
+            "block_id": "B",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "b",
+            "placement": "placed",
+            "window_id": "W2"
+          },
+          {
+            "block_id": "LOOSE",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "loose",
+            "placement": "detached"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "session.float_block",
+    "value": {
+      "result": null,
+      "error": {
+        "code": "not_found",
+        "message": "block LOOSE not found in any window",
+        "status": 404
+      }
+    }
+  },
+  {
+    "label": "session.move_block",
+    "value": {
+      "error": null,
+      "result": {
+        "created_split_id": "SPLIT1",
+        "revision": 4
+      }
+    }
+  },
+  {
+    "label": "session.float_block",
+    "value": {
+      "error": null,
+      "result": {
+        "layer_id": "FLOAT_LOOSE",
+        "revision": 5
+      }
+    }
+  },
+  {
+    "label": "after float loose",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 5,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "A",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": {
+                "block_id": "A",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.6,
+                    "x": 0.1,
+                    "y": 0.2
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.6,
+                "x": 0.1,
+                "y": 0.2
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_LOOSE",
+              "layout": {
+                "block_id": "LOOSE",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.6,
+                  "x": 0.1,
+                  "y": 0.2
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.new_layer",
+    "value": {
+      "error": null,
+      "result": {
+        "block_ids": [
+          "D"
+        ],
+        "layer_id": "FLOAT_D",
+        "revision": 6
+      }
+    }
+  },
+  {
+    "label": "after new layer",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 6,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "A",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": {
+                "block_id": "A",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.6,
+                    "x": 0.1,
+                    "y": 0.2
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.6,
+                "x": 0.1,
+                "y": 0.2
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_LOOSE",
+              "layout": {
+                "block_id": "LOOSE",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.6,
+                  "x": 0.1,
+                  "y": 0.2
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.float_block",
+    "value": {
+      "error": null,
+      "result": {
+        "layer_id": "FLOAT_A",
+        "revision": 7
+      }
+    }
+  },
+  {
+    "label": "after float A",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 7,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "A",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.6,
+                    "x": 0.1,
+                    "y": 0.2
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.6,
+                "x": 0.1,
+                "y": 0.2
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_LOOSE",
+              "layout": {
+                "block_id": "LOOSE",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.6,
+                  "x": 0.1,
+                  "y": 0.2
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "focused": true,
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.lower_layer",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 8
+      }
+    }
+  },
+  {
+    "label": "after lower A",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 8,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "A",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "focused": true,
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.6,
+                    "x": 0.1,
+                    "y": 0.2
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.6,
+                "x": 0.1,
+                "y": 0.2
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_LOOSE",
+              "layout": {
+                "block_id": "LOOSE",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.6,
+                  "x": 0.1,
+                  "y": 0.2
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.raise_layer",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 9
+      }
+    }
+  },
+  {
+    "label": "session.resize_layer",
+    "value": {
+      "error": {
+        "code": "bad_request",
+        "message": "input: validating: bounds must be a finite normalized rectangle with positive size contained within the unit square",
+        "status": 400
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "session.resize_layer",
+    "value": {
+      "error": {
+        "code": "bad_request",
+        "message": "input: validating: bounds must be a finite normalized rectangle with positive size contained within the unit square",
+        "status": 400
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "session.resize_layer",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 10
+      }
+    }
+  },
+  {
+    "label": "session.zoom_block",
+    "value": {
+      "error": null,
+      "result": {
+        "block_id": "LOOSE",
+        "revision": 12,
+        "zoomed": true
+      }
+    }
+  },
+  {
+    "label": "after zoom",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 12,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "LOOSE",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.6,
+                "w": 0.5,
+                "x": 0.15,
+                "y": 0.1
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_LOOSE",
+              "layout": {
+                "block_id": "LOOSE",
+                "focused": true,
+                "rect": {
+                  "h": 0.6,
+                  "w": 0.5,
+                  "x": 0.15,
+                  "y": 0.1
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1",
+          "zoomed_block_id": "LOOSE"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.zoom_block",
+    "value": {
+      "error": null,
+      "result": {
+        "block_id": "LOOSE",
+        "revision": 13,
+        "zoomed": false
+      }
+    }
+  },
+  {
+    "label": "session.detach_block",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 14
+      }
+    }
+  },
+  {
+    "label": "session.list_blocks",
+    "value": {
+      "error": null,
+      "result": {
+        "blocks": [
+          {
+            "block_id": "A",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "a",
+            "placement": "placed",
+            "window_id": "W1"
+          },
+          {
+            "block_id": "B",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "b",
+            "placement": "placed",
+            "window_id": "W2"
+          },
+          {
+            "block_id": "LOOSE",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "loose",
+            "placement": "detached"
+          },
+          {
+            "block_id": "D",
+            "creator_name": "com.superlogical.terminal",
+            "flavor": "com.superlogical.terminal.shell",
+            "host_id": "HOST",
+            "label": "d",
+            "placement": "placed",
+            "window_id": "W1"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "after detach",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 14,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "D",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "focused": true,
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 1,
+                    "x": 0,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "block_id": "B",
+                "focused": true,
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.move_block",
+    "value": {
+      "error": null,
+      "result": {
+        "created_split_id": "SPLIT2",
+        "revision": 15
+      }
+    }
+  },
+  {
+    "label": "after move",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 15,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "D",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "focused": true,
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.3,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.7,
+                    "x": 0.3,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                },
+                "split": {
+                  "after": {
+                    "block_id": "B",
+                    "focused": true,
+                    "rect": {
+                      "h": 1,
+                      "w": 0.7,
+                      "x": 0.3,
+                      "y": 0
+                    }
+                  },
+                  "before": {
+                    "block_id": "LOOSE",
+                    "rect": {
+                      "h": 1,
+                      "w": 0.3,
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "direction": "horizontal",
+                  "ratio": 0.3,
+                  "split_id": "SPLIT2"
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.swap_blocks",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 16
+      }
+    }
+  },
+  {
+    "label": "after swap",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 16,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "active": true,
+          "focused_block_id": "D",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "focused": true,
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "focused_block_id": "LOOSE",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.3,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.7,
+                    "x": 0.3,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                },
+                "split": {
+                  "after": {
+                    "block_id": "LOOSE",
+                    "focused": true,
+                    "rect": {
+                      "h": 1,
+                      "w": 0.7,
+                      "x": 0.3,
+                      "y": 0
+                    }
+                  },
+                  "before": {
+                    "block_id": "B",
+                    "rect": {
+                      "h": 1,
+                      "w": 0.3,
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "direction": "horizontal",
+                  "ratio": 0.3,
+                  "split_id": "SPLIT2"
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.focus_block",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 17
+      }
+    }
+  },
+  {
+    "label": "session.resize_pane",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 18
+      }
+    }
+  },
+  {
+    "label": "session.focus_direction",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 19
+      }
+    }
+  },
+  {
+    "label": "after focus right",
+    "value": {
+      "active_window_id": "W2",
+      "label": "layout probe",
+      "revision": 19,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "focused_block_id": "D",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "focused": true,
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        },
+        {
+          "active": true,
+          "focused_block_id": "LOOSE",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.75,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.25,
+                    "x": 0.75,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                },
+                "split": {
+                  "after": {
+                    "block_id": "LOOSE",
+                    "focused": true,
+                    "rect": {
+                      "h": 1,
+                      "w": 0.25,
+                      "x": 0.75,
+                      "y": 0
+                    }
+                  },
+                  "before": {
+                    "block_id": "B",
+                    "rect": {
+                      "h": 1,
+                      "w": 0.75,
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "direction": "horizontal",
+                  "ratio": 0.75,
+                  "split_id": "SPLIT2"
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.focus_next_pane",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 20
+      }
+    }
+  },
+  {
+    "label": "session.focus_previous_pane",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 20
+      }
+    }
+  },
+  {
+    "label": "session.focus_next_window",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 20
+      }
+    }
+  },
+  {
+    "label": "session.focus_previous_window",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 21
+      }
+    }
+  },
+  {
+    "label": "session.move_window",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 22
+      }
+    }
+  },
+  {
+    "label": "after tab move",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 22,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.75,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.25,
+                    "x": 0.75,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                },
+                "split": {
+                  "after": {
+                    "block_id": "LOOSE",
+                    "rect": {
+                      "h": 1,
+                      "w": 0.25,
+                      "x": 0.75,
+                      "y": 0
+                    }
+                  },
+                  "before": {
+                    "block_id": "B",
+                    "focused": true,
+                    "rect": {
+                      "h": 1,
+                      "w": 0.75,
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "direction": "horizontal",
+                  "ratio": 0.75,
+                  "split_id": "SPLIT2"
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        },
+        {
+          "active": true,
+          "focused_block_id": "D",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "focused": true,
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "A",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "a",
+                  "rect": {
+                    "h": 0.5,
+                    "w": 0.5,
+                    "x": 0.05,
+                    "y": 0.05
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.05,
+                "y": 0.05
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_A",
+              "layout": {
+                "block_id": "A",
+                "rect": {
+                  "h": 0.5,
+                  "w": 0.5,
+                  "x": 0.05,
+                  "y": 0.05
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.close_layer",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 23
+      }
+    }
+  },
+  {
+    "label": "after close float A",
+    "value": {
+      "active_window_id": "W1",
+      "label": "layout probe",
+      "revision": 23,
+      "session_id": "SESSION",
+      "windows": [
+        {
+          "focused_block_id": "B",
+          "label": "two",
+          "layers": [
+            {
+              "blocks": [
+                {
+                  "block_id": "B",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "b",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.75,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "block_id": "LOOSE",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "loose",
+                  "rect": {
+                    "h": 1,
+                    "w": 0.25,
+                    "x": 0.75,
+                    "y": 0
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED2",
+              "layout": {
+                "rect": {
+                  "h": 1,
+                  "w": 1,
+                  "x": 0,
+                  "y": 0
+                },
+                "split": {
+                  "after": {
+                    "block_id": "LOOSE",
+                    "rect": {
+                      "h": 1,
+                      "w": 0.25,
+                      "x": 0.75,
+                      "y": 0
+                    }
+                  },
+                  "before": {
+                    "block_id": "B",
+                    "focused": true,
+                    "rect": {
+                      "h": 1,
+                      "w": 0.75,
+                      "x": 0,
+                      "y": 0
+                    }
+                  },
+                  "direction": "horizontal",
+                  "ratio": 0.75,
+                  "split_id": "SPLIT2"
+                }
+              }
+            }
+          ],
+          "window_id": "W2"
+        },
+        {
+          "active": true,
+          "focused_block_id": "D",
+          "label": "one",
+          "layers": [
+            {
+              "blocks": [],
+              "bounds": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              },
+              "kind": "tiled",
+              "layer_id": "TILED1",
+              "layout": null
+            },
+            {
+              "blocks": [
+                {
+                  "block_id": "D",
+                  "creator_name": "com.superlogical.terminal",
+                  "flavor": "com.superlogical.terminal.shell",
+                  "host_id": "HOST",
+                  "label": "d",
+                  "rect": {
+                    "h": 0.4,
+                    "w": 0.4,
+                    "x": 0.2,
+                    "y": 0.3
+                  }
+                }
+              ],
+              "bounds": {
+                "h": 0.4,
+                "w": 0.4,
+                "x": 0.2,
+                "y": 0.3
+              },
+              "kind": "floating",
+              "layer_id": "FLOAT_D",
+              "layout": {
+                "block_id": "D",
+                "focused": true,
+                "rect": {
+                  "h": 0.4,
+                  "w": 0.4,
+                  "x": 0.2,
+                  "y": 0.3
+                }
+              }
+            }
+          ],
+          "window_id": "W1"
+        }
+      ]
+    }
+  },
+  {
+    "label": "session.list_clients",
+    "value": {
+      "error": null,
+      "result": {
+        "clients": [
+          {
+            "client_id": "CLIENT",
+            "connection_state": "connected",
+            "info": {
+              "kind": "cli",
+              "name": "compatibility test"
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "label": "session help keys",
+    "value": [
+      "block_types",
+      "http",
+      "methods"
+    ]
+  }
+]

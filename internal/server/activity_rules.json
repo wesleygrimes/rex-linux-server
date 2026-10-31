@@ -1,0 +1,2740 @@
+[
+  {
+    "process": [
+      "amp",
+      "amp-local"
+    ],
+    "app": "amp",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "osc_title",
+        "contains": [
+          "Plugin confirmation needed"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "waiting for approval"
+            ]
+          },
+          {
+            "contains": [
+              "invoke tool"
+            ]
+          },
+          {
+            "contains": [
+              "run this command?"
+            ]
+          },
+          {
+            "contains": [
+              "allow editing file:"
+            ]
+          },
+          {
+            "contains": [
+              "allow creating file:"
+            ]
+          },
+          {
+            "contains": [
+              "confirm tool call"
+            ]
+          },
+          {
+            "contains": [
+              "approve"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "allow all for this session"
+                ]
+              },
+              {
+                "contains": [
+                  "allow all for every session"
+                ]
+              },
+              {
+                "contains": [
+                  "allow file for every session"
+                ]
+              },
+              {
+                "contains": [
+                  "deny with feedback"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(5)",
+        "line_regex": "(?i)^\\s*╰\\s+\\S+\\s+(thinking|streaming|running tools|waiting)\\s+─"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "contains": [
+          "esc to cancel"
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "agy",
+      "antigravity",
+      "antigravity-cli"
+    ],
+    "app": "antigravity",
+    "rules": [
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "requesting permission for:"
+        ],
+        "any": [
+          {
+            "contains": [
+              "do you want to proceed?"
+            ]
+          },
+          {
+            "contains": [
+              "tab amend",
+              "edit command"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "line_regex": "^\\s*[\\x{2800}-\\x{28FF}]+\\s+\\p{L}+\\w*ing\\b"
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(5)",
+        "line_regex": "(?i)·\\s*[1-9][0-9]*\\s+task"
+      }
+    ]
+  },
+  {
+    "process": [
+      "claude",
+      "claude-code"
+    ],
+    "app": "claude",
+    "rules": [
+      {
+        "state": "working",
+        "region": "osc_title",
+        "regex": "[◐◑◒◓⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏]"
+      },
+      {
+        "skip": true,
+        "region": "bottom_non_empty_lines(3)",
+        "contains": [
+          "showing detailed transcript"
+        ],
+        "any": [
+          {
+            "contains": [
+              "ctrl+o",
+              "to toggle"
+            ]
+          },
+          {
+            "contains": [
+              "ctrl+e",
+              "show all"
+            ]
+          },
+          {
+            "contains": [
+              "ctrl+e",
+              "collapse"
+            ]
+          },
+          {
+            "contains": [
+              "↑↓ scroll"
+            ]
+          },
+          {
+            "contains": [
+              "? for shortcuts"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "region": "after_last_horizontal_rule",
+        "contains": [
+          "esc to cancel"
+        ],
+        "any": [
+          {
+            "contains": [
+              "enter to confirm"
+            ]
+          },
+          {
+            "contains": [
+              "enter to select"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "tab/arrow keys to navigate"
+                ]
+              },
+              {
+                "contains": [
+                  "arrow keys to navigate"
+                ]
+              },
+              {
+                "contains": [
+                  "arrows to navigate"
+                ]
+              },
+              {
+                "contains": [
+                  "↑/↓ to navigate"
+                ]
+              },
+              {
+                "contains": [
+                  "↑↓ to navigate"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "after_last_horizontal_rule",
+        "contains": [
+          "do you want to proceed?",
+          "esc to cancel"
+        ],
+        "any": [
+          {
+            "line_regex": "(?i)^\\s*❯?\\s*1\\.\\s*yes\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*2\\.\\s*yes\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*2\\.\\s*no\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*3\\.\\s*no\\b"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(5)",
+        "line_regex": "^\\s*/btw(?:\\s|$)",
+        "all": [
+          {
+            "line_regex": "(?i)esc to close\\s*$"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(12)",
+        "any": [
+          {
+            "line_regex": "^\\s*[⏸⏵].*esc to interrupt(?:\\s|·|$)"
+          },
+          {
+            "line_regex": "^\\s*[\\x{002A}\\x{00B7}\\x{2722}\\x{2733}\\x{2736}\\x{273B}\\x{273D}]\\s+\\S.*…(?:\\s+\\(\\d+[smh](?:\\s|·)|\\s*$)"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(12)",
+        "regex": "(?m)^[\\x{002A}\\x{00B7}\\x{2722}\\x{2736}\\x{273B}\\x{273D}][ \\t]+\\S[^\\n]*?(?:\\n[ \\t]+[^\\n]*?){0,3}·(?:[ \\t]+|\\n[ \\t]*)[1-9]\\d*(?:[ \\t]+|\\n[ \\t]*)MCP(?:[ \\t]+|\\n[ \\t]*)tasks?(?:[ \\t]+|\\n[ \\t]*)still(?:[ \\t]+|\\n[ \\t]*)running[ \\t]*$",
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "do you want to proceed?"
+              ]
+            },
+            {
+              "contains": [
+                "esc to cancel"
+              ]
+            },
+            {
+              "contains": [
+                "waiting for permission"
+              ]
+            },
+            {
+              "contains": [
+                "do you want to allow this connection?"
+              ]
+            },
+            {
+              "contains": [
+                "tab to amend"
+              ]
+            },
+            {
+              "contains": [
+                "ctrl+e to explain"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "state": "error",
+        "region": "bottom_non_empty_lines(8)",
+        "line_regex": "^\\s*(?:⎿\\s+)?API Error"
+      },
+      {
+        "state": "idle",
+        "region": "prompt_box_body",
+        "line_regex": "^\\s*❯",
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "enter to select"
+              ]
+            },
+            {
+              "contains": [
+                "esc to cancel"
+              ]
+            },
+            {
+              "contains": [
+                "tab/arrow keys"
+              ]
+            },
+            {
+              "contains": [
+                "arrow keys to navigate"
+              ]
+            },
+            {
+              "contains": [
+                "↑/↓ to navigate"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "skip": true,
+        "region": "whole_recent",
+        "contains": [
+          "select model",
+          "enter to set as default",
+          "esc to cancel"
+        ],
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "do you want to proceed?"
+              ]
+            },
+            {
+              "contains": [
+                "enter to select"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "state": "idle",
+        "region": "osc_title",
+        "contains": [
+          "✳"
+        ]
+      },
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "run a dynamic workflow?",
+          "esc to cancel"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "esc to cancel"
+        ],
+        "line_regex": "(?i)^\\s*MCP server [\"\\x{201C}].+[\"\\x{201D}] requests your input\\s*$",
+        "any": [
+          {
+            "line_regex": "^\\s*\\x{276F}?\\s*Accept\\b"
+          },
+          {
+            "line_regex": "^\\s*\\x{276F}?\\s*Decline\\b"
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "do you want to proceed?"
+        ],
+        "any": [
+          {
+            "line_regex": "(?i)^\\s*❯?\\s*yes\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*❯?\\s*1\\.\\s*yes\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*❯?\\s*2\\.\\s*yes\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*❯?\\s*2\\.\\s*no\\b"
+          },
+          {
+            "line_regex": "(?i)^\\s*❯?\\s*3\\.\\s*no\\b"
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "bash command"
+                ]
+              },
+              {
+                "contains": [
+                  "bash("
+                ]
+              },
+              {
+                "contains": [
+                  "contains expansion"
+                ]
+              },
+              {
+                "contains": [
+                  "tab to amend"
+                ]
+              },
+              {
+                "contains": [
+                  "ctrl+e to explain"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "do you want to"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "yes"
+                ]
+              },
+              {
+                "contains": [
+                  "❯"
+                ]
+              }
+            ]
+          },
+          {
+            "contains": [
+              "would you like to"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "yes"
+                ]
+              },
+              {
+                "contains": [
+                  "❯"
+                ]
+              }
+            ]
+          },
+          {
+            "contains": [
+              "waiting for permission"
+            ]
+          },
+          {
+            "contains": [
+              "do you want to allow this connection?"
+            ]
+          },
+          {
+            "contains": [
+              "tab to amend"
+            ]
+          },
+          {
+            "contains": [
+              "ctrl+e to explain"
+            ]
+          },
+          {
+            "contains": [
+              "do you want to proceed?",
+              "esc to cancel"
+            ]
+          },
+          {
+            "contains": [
+              "review your answers"
+            ]
+          },
+          {
+            "contains": [
+              "skip interview and plan immediately"
+            ]
+          }
+        ],
+        "not": {
+          "regex": "(?m)^\\s*❯\\s*$"
+        }
+      }
+    ]
+  },
+  {
+    "process": [
+      "cline"
+    ],
+    "app": "cline",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "let cline use this tool"
+            ]
+          },
+          {
+            "contains": [
+              "[act mode]",
+              "execute command?",
+              "yes"
+            ]
+          },
+          {
+            "contains": [
+              "[act mode]",
+              "use this tool?",
+              "yes"
+            ]
+          },
+          {
+            "contains": [
+              "[plan mode]",
+              "execute command?",
+              "yes"
+            ]
+          },
+          {
+            "contains": [
+              "[plan mode]",
+              "use this tool?",
+              "yes"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(16)",
+        "contains": [
+          "Cline needs permission",
+          "Approve tool call?",
+          "[y] Approve",
+          "[n] Deny"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "bottom_non_empty_lines(24)",
+        "contains": [
+          "(Tab)",
+          "Shift+Tab"
+        ],
+        "line_regex": "^\\s*Cline is asking a question\\s*$",
+        "all": [
+          {
+            "line_regex": "^\\s*>\\s+\\S"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(20)",
+        "any": [
+          {
+            "line_regex": "^\\s*[\\x{2801}-\\x{28FF}]\\s+\\S"
+          },
+          {
+            "contains": [
+              "Thinking... (esc to cancel)"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(12)",
+        "contains": [
+          "─",
+          "(Tab)",
+          "Shift+Tab"
+        ],
+        "line_regex": "^\\s*❯(?:\\s.*)?$"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "regex": "(?s).+"
+      }
+    ]
+  },
+  {
+    "process": [
+      "codex"
+    ],
+    "app": "codex",
+    "prompt_marker": "›",
+    "rules": [
+      {
+        "skip": true,
+        "region": "bottom_non_empty_lines(12)",
+        "contains": [
+          "↑/↓ to scroll",
+          "q to quit"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "osc_title",
+        "contains": [
+          "Action Required"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "osc_title",
+        "regex": "(?:^| )[⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏](?: |$)"
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "top_non_empty_lines(20)",
+        "any": [
+          {
+            "regex": "\\A> You are in [^\\r\\n]+(?:\\r?\\n|$)"
+          },
+          {
+            "contains": [
+              "Folder access"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "regex": "(?s)Do\\s+you\\s+trust\\s+the\\s+contents\\s+of\\s+this\\s+directory\\?"
+              },
+              {
+                "contains": [
+                  "Trust this folder?",
+                  "Codex can read, edit, and run files here"
+                ],
+                "any": [
+                  {
+                    "contains": [
+                      "Trust and continue"
+                    ]
+                  },
+                  {
+                    "contains": [
+                      "enter continue"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "region": "bottom_non_empty_lines(20)",
+        "contains": [
+          "Update available!",
+          "Update now"
+        ],
+        "regex": "Skip\\s+until\\s+next\\s+version",
+        "all": [
+          {
+            "regex": "Press enter to continue\\s*\\z"
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "after_last_prompt_marker",
+        "any": [
+          {
+            "contains": [
+              "press enter to confirm or esc to cancel"
+            ]
+          },
+          {
+            "contains": [
+              "allow command?"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "after_last_prompt_marker",
+        "any": [
+          {
+            "contains": [
+              "enter to submit answer"
+            ]
+          },
+          {
+            "contains": [
+              "enter to submit all"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "region": "after_last_prompt_marker",
+        "contains": [
+          "All Results",
+          "Filesystem Only",
+          "Plugins"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "after_last_prompt_marker",
+        "any": [
+          {
+            "contains": [
+              "[y/n]"
+            ]
+          },
+          {
+            "contains": [
+              "yes (y)"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "before_current_prompt_marker",
+        "regex": "(?m)^(?:[•◦][ \\t]+)?[^\\s›•◦■✗✓─][^\\r\\n]* \\((?:[0-9]+[hm] )*[0-9]+s(?: • [^\\r\\n]+? to interrupt)?\\)(?: · [^\\r\\n]*)?(?:\\r?\\n(?:[^•◦›■✗✓─\\r\\n][^\\r\\n]*|•[ \\t]+(?:Queued\\s+follow-up\\s+inputs|Messages\\s+to\\s+be\\s+submitted\\s+after\\s+next\\s+tool\\s+call(?:\\s+\\(press\\s+[^\\r\\n]+?\\s+to\\s+interrupt\\s+and\\s+send\\s+immediately\\))?|Messages\\s+to\\s+be\\s+submitted\\s+at\\s+end\\s+of\\s+turn)|›[⠁⠂⠄⠈⠐⠠⡀⢀][^\\r\\n]*)?)*\\s*\\z",
+        "any": [
+          {
+            "contains": [
+              " to interrupt)"
+            ]
+          },
+          {
+            "contains": [
+              "s)"
+            ]
+          }
+        ],
+        "not": {
+          "line_regex": "^(?:[•◦][ \\t]+)?Reconnect failed — check the endpoint, then relaunch \\([0-9hms ]+\\)$"
+        }
+      },
+      {
+        "state": "error",
+        "region": "bottom_non_empty_lines(6)",
+        "line_regex": "^■ "
+      },
+      {
+        "state": "done",
+        "region": "bottom_non_empty_lines(12)",
+        "regex": "(?m)^(?:─+ Worked for [\\dhms. ]+─+|[ \\t]+Worked for <?[\\dhms. ]+ • \\d{1,2}:\\d{2} [AP]M)$"
+      }
+    ]
+  },
+  {
+    "process": [
+      "copilot",
+      "github-copilot",
+      "ghcs"
+    ],
+    "app": "copilot",
+    "rules": [
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "esc to cancel"
+            ]
+          },
+          {
+            "contains": [
+              "esc cancel"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "enter to select"
+                ]
+              },
+              {
+                "contains": [
+                  "enter to confirm"
+                ]
+              },
+              {
+                "contains": [
+                  "enter to submit"
+                ]
+              },
+              {
+                "contains": [
+                  "enter accept"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(6)",
+        "line_regex": "^\\s*◎\\s+Waiting for background agents(?:\\s|·|$)"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "esc to cancel"
+            ]
+          },
+          {
+            "contains": [
+              "esc cancel"
+            ]
+          },
+          {
+            "contains": [
+              "esc again to cancel"
+            ]
+          },
+          {
+            "contains": [
+              "esc interrupt"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "cursor-agent",
+      "cursor"
+    ],
+    "app": "cursor",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "write to this file?",
+          "proceed (y)"
+        ],
+        "any": [
+          {
+            "contains": [
+              "reject & propose changes"
+            ]
+          },
+          {
+            "contains": [
+              "esc or n or p"
+            ]
+          },
+          {
+            "contains": [
+              "add write("
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "waiting for approval",
+              "run this command?"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "run (once) (y)"
+                ]
+              },
+              {
+                "contains": [
+                  "skip (esc or n)"
+                ]
+              }
+            ]
+          },
+          {
+            "contains": [
+              "(y) (enter)"
+            ]
+          },
+          {
+            "line_regex": "(?i)^\\s*allow .*\\(y\\)"
+          },
+          {
+            "contains": [
+              "keep (n)"
+            ]
+          },
+          {
+            "contains": [
+              "skip (esc or n)"
+            ]
+          },
+          {
+            "line_regex": "(?i)^\\s*(?:→\\s*)?run .*\\(y\\)"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(6)",
+        "contains": [
+          "ctrl+c to stop"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(5)",
+        "line_regex": "(?i)\\b[1-9][0-9]*\\s+background\\s+tasks?\\b"
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "line_regex": "^\\s*(⬡|⬢|[\\x{2800}-\\x{28FF}]+)\\s+\\p{L}+\\w*ing\\b"
+      }
+    ]
+  },
+  {
+    "process": [
+      "devin",
+      "devin-cli"
+    ],
+    "app": "devin",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "do you trust the authors of this directory?",
+          "with untrusted content.",
+          "yes, trust "
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "approve once",
+          "select",
+          "confirm",
+          "esc cancel"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "running tools",
+          "esc to interrupt"
+        ],
+        "not": {
+          "contains": [
+            "approve once",
+            "esc cancel"
+          ]
+        }
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(6)",
+        "contains": [
+          "guide devin while it works"
+        ],
+        "not": {
+          "contains": [
+            "approve once",
+            "esc cancel"
+          ]
+        }
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "reading shell ",
+          "timeout:"
+        ],
+        "not": {
+          "contains": [
+            "approve once",
+            "esc cancel"
+          ]
+        }
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "ask devin to build",
+          "features, fix bugs",
+          "your code"
+        ],
+        "line_regex": "^\\s*❭ Ask Devin to build",
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "approve once",
+                "esc cancel"
+              ]
+            },
+            {
+              "contains": [
+                "running tools",
+                "esc to interrupt"
+              ]
+            },
+            {
+              "contains": [
+                "guide devin while it works"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(6)",
+        "contains": [
+          "context:"
+        ],
+        "line_regex": "^\\s*❭",
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "approve once",
+                "esc cancel"
+              ]
+            },
+            {
+              "contains": [
+                "running tools",
+                "esc to interrupt"
+              ]
+            },
+            {
+              "contains": [
+                "guide devin while it works"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "process": [
+      "droid"
+    ],
+    "app": "droid",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "enter to select",
+          "esc to cancel"
+        ],
+        "any": [
+          {
+            "contains": [
+              "> yes, allow"
+            ]
+          },
+          {
+            "contains": [
+              "> no, cancel"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "↑↓ to navigate"
+                ]
+              },
+              {
+                "contains": [
+                  "use ↑↓ to navigate"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "enter select",
+          "esc cancel"
+        ],
+        "any": [
+          {
+            "contains": [
+              "↑/↓ navigate"
+            ]
+          },
+          {
+            "contains": [
+              "↑↓ navigate"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "contains": [
+          "esc to stop"
+        ],
+        "line_regex": "^\\s*[\\x{2800}-\\x{28FF}]"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "contains": [
+          "esc to stop"
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "gemini"
+    ],
+    "app": "gemini",
+    "rules": [
+      {
+        "state": "working",
+        "region": "osc_title",
+        "contains": [
+          "✦"
+        ]
+      },
+      {
+        "state": "idle",
+        "region": "osc_title",
+        "contains": [
+          "◇"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "│ Apply this change"
+            ]
+          },
+          {
+            "contains": [
+              "│ Allow execution"
+            ]
+          },
+          {
+            "contains": [
+              "yes"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "waiting for user confirmation"
+                ]
+              },
+              {
+                "contains": [
+                  "│ Do you want to proceed"
+                ]
+              },
+              {
+                "contains": [
+                  "do you want to proceed?"
+                ]
+              }
+            ]
+          },
+          {
+            "line_regex": "(?i)^\\s*❯.*(yes|allow)"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "contains": [
+          "esc to cancel"
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "grok",
+      "grok-build"
+    ],
+    "app": "grok",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "osc_title",
+        "contains": [
+          "Action Required"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(2)",
+        "contains": [
+          ":select",
+          "ctrl+o:yolo",
+          "ctrl+c:cancel"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "bottom_non_empty_lines(2)",
+        "contains": [
+          "tab:scrollback",
+          "shift+x:dismiss"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(12)",
+        "line_regex": "^\\s*[○◎◉]\\s+[1-9][0-9]*\\s+(?:commands?|monitors?|loops?|subagents?)(?:\\s+·\\s+[1-9][0-9]*\\s+(?:commands?|monitors?|loops?|subagents?))*\\s+still running(?:\\s+·\\s+send a message to interrupt)?\\s*$"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "line_regex": "^\\s*[\\x{2801}-\\x{28FF}]\\s.*\\[stop\\]\\s*$"
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(2)",
+        "contains": [
+          "ctrl+.:shortcuts"
+        ],
+        "any": [
+          {
+            "contains": [
+              "esc:cancel"
+            ]
+          },
+          {
+            "contains": [
+              "ctrl+c:cancel"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "osc_progress",
+        "regex": "^1(;|$)"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "ctrl+c:cancel",
+              "ctrl+enter:interject"
+            ],
+            "all": [
+              {
+                "contains": [
+                  "waiting"
+                ]
+              }
+            ]
+          },
+          {
+            "line_regex": "^\\s*[\\x{2801}-\\x{28FF}]\\s+(Run|Read|Search|List)\\b"
+          }
+        ]
+      },
+      {
+        "state": "idle",
+        "region": "osc_progress",
+        "regex": "^0(;|$)"
+      },
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "line_regex": "^\\s*┃\\s+[0-9a-z]+\\s+\\([●○]\\)\\s"
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "yes, proceed",
+          "no, reject"
+        ],
+        "any": [
+          {
+            "contains": [
+              "use ← → to choose permission whitelist scope"
+            ]
+          },
+          {
+            "contains": [
+              "←/→:scope"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(2)",
+        "contains": [
+          "ctrl+.:shortcuts"
+        ],
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "esc:cancel"
+              ]
+            },
+            {
+              "contains": [
+                "ctrl+c:cancel"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "process": [
+      "hermes",
+      "hermes-agent"
+    ],
+    "app": "hermes",
+    "rules": [
+      {
+        "state": "blocked",
+        "region": "osc_title",
+        "contains": [
+          "⚠"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "osc_title",
+        "contains": [
+          "⏳"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(5)",
+        "any": [
+          {
+            "contains": [
+              "msg=interrupt"
+            ]
+          },
+          {
+            "contains": [
+              "ctrl+c to interrupt"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(14)",
+        "any": [
+          {
+            "contains": [
+              "enter confirm"
+            ]
+          },
+          {
+            "contains": [
+              "enter to confirm"
+            ]
+          },
+          {
+            "contains": [
+              "↑/↓ to select"
+            ]
+          },
+          {
+            "contains": [
+              "show full command"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "dangerous"
+                ]
+              },
+              {
+                "contains": [
+                  "approval"
+                ]
+              },
+              {
+                "contains": [
+                  "allow once",
+                  "deny"
+                ]
+              },
+              {
+                "line_regex": "(?i)^\\s*[▸>]?\\s*1\\.\\s*allow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "bottom_non_empty_lines(14)",
+        "any": [
+          {
+            "contains": [
+              "enter confirm"
+            ]
+          },
+          {
+            "contains": [
+              "enter to confirm"
+            ]
+          },
+          {
+            "contains": [
+              "enter send"
+            ]
+          },
+          {
+            "contains": [
+              "press enter"
+            ]
+          },
+          {
+            "contains": [
+              "↑/↓ select"
+            ]
+          },
+          {
+            "contains": [
+              "↑/↓ to select"
+            ]
+          },
+          {
+            "contains": [
+              "other (type"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "hermes needs your"
+                ]
+              },
+              {
+                "line_regex": "^\\s*ask\\s+\\S"
+              },
+              {
+                "contains": [
+                  "type your answer"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "auth",
+        "region": "bottom_non_empty_lines(14)",
+        "any": [
+          {
+            "contains": [
+              "sudo password"
+            ]
+          },
+          {
+            "contains": [
+              "skill setup"
+            ]
+          },
+          {
+            "contains": [
+              "🔑",
+              "for "
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "region": "bottom_non_empty_lines(14)",
+        "any": [
+          {
+            "contains": [
+              "approve once",
+              "cancel"
+            ]
+          },
+          {
+            "contains": [
+              "start a new session",
+              "keep going"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "enter to confirm"
+                ]
+              },
+              {
+                "contains": [
+                  "enter confirm"
+                ]
+              },
+              {
+                "contains": [
+                  "type 1/2/3"
+                ]
+              },
+              {
+                "contains": [
+                  "y/n quick"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(5)",
+        "contains": [
+          "ctrl+c cancel"
+        ]
+      },
+      {
+        "state": "done",
+        "region": "osc_title",
+        "contains": [
+          "✓"
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "kilo",
+      "kilo-code"
+    ],
+    "app": "kilo",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "△ Permission required"
+            ]
+          },
+          {
+            "contains": [
+              "esc dismiss"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "↑↓ select"
+                ]
+              },
+              {
+                "contains": [
+                  "⇆ tab"
+                ]
+              }
+            ],
+            "all": [
+              {
+                "any": [
+                  {
+                    "contains": [
+                      "enter confirm"
+                    ]
+                  },
+                  {
+                    "contains": [
+                      "enter submit"
+                    ]
+                  },
+                  {
+                    "contains": [
+                      "enter toggle"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "contains": [
+          "esc interrupt"
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "kimi",
+      "kimi-code"
+    ],
+    "app": "kimi",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "↵ confirm"
+        ],
+        "any": [
+          {
+            "contains": [
+              "approve"
+            ]
+          },
+          {
+            "contains": [
+              "reject"
+            ]
+          },
+          {
+            "contains": [
+              "revise"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "contains": [
+              " choose"
+            ]
+          },
+          {
+            "any": [
+              {
+                "contains": [
+                  "run this command?"
+                ]
+              },
+              {
+                "contains": [
+                  "write this file?"
+                ]
+              },
+              {
+                "contains": [
+                  "apply these edits?"
+                ]
+              },
+              {
+                "contains": [
+                  "stop this task?"
+                ]
+              },
+              {
+                "contains": [
+                  "ready to build with this plan?"
+                ]
+              },
+              {
+                "line_regex": "(?i)^\\s*▶?\\s*approve .*\\?$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "↑↓ select",
+          "esc cancel"
+        ],
+        "line_regex": "^\\s*question\\s*$",
+        "any": [
+          {
+            "contains": [
+              "↵ choose"
+            ]
+          },
+          {
+            "contains": [
+              "↵ toggle"
+            ]
+          },
+          {
+            "contains": [
+              "↵ save"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "line_regex": "^\\s*\\? "
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "requesting approval",
+          "reject"
+        ],
+        "any": [
+          {
+            "contains": [
+              "1/2/3/4 choose"
+            ]
+          },
+          {
+            "contains": [
+              "↵ confirm"
+            ]
+          }
+        ],
+        "all": [
+          {
+            "any": [
+              {
+                "contains": [
+                  "approve once"
+                ]
+              },
+              {
+                "contains": [
+                  "approve for this session"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(3)",
+        "line_regex": "(?i)\\bkimi[-\\w.]*\\s+thinking\\b.*\\[[1-9][0-9]*\\s+agents?\\s+running\\]"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "line_regex": "^\\s*(🌕|🌖|🌗|🌘|🌑|🌒|🌓|🌔)\\s*$"
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "line_regex": "(?i)^\\s*[\\x{2800}-\\x{28FF}]+\\s*(thinking\\.\\.\\.|working\\.\\.\\.|using )"
+      }
+    ]
+  },
+  {
+    "process": [
+      "kiro",
+      "kiro-cli"
+    ],
+    "app": "kiro",
+    "rules": [
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(4)",
+        "line_regex": "(?i)^\\s*[>›]\\s*ask a question or describe a task(?:\\s+(?:enter|↵))?\\s*$"
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(8)",
+        "regex": "(?is)(?:^|\\n)\\s*esc\\s+to\\s+close\\b(?:[^\\n]*\\bto\\s+navigate\\b[^\\n]*|.*\\bto\\s+navigate\\b.*\\bto\\s+select\\b.*\\btab\\s+to\\s+edit|[^\\n]*\\benter\\s+to\\s+see\\s+more\\s+options)\\s*\\z",
+        "any": [
+          {
+            "line_regex": "(?i)^\\s*[>❯]\\s*(?:allow|always allow|deny|always deny)\\s*$",
+            "all": [
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?allow\\s*$"
+              },
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?always allow\\s*$"
+              },
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?deny\\s*$"
+              },
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?always deny\\s*$"
+              }
+            ]
+          },
+          {
+            "line_regex": "(?i)^\\s*[>❯]\\s*(?:yes, single permission|trust, always allow in this session|no \\(tab to edit\\))\\s*$",
+            "all": [
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?yes, single permission\\s*$"
+              },
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?trust, always allow in this session\\s*$"
+              },
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?no \\(tab to edit\\)\\s*$"
+              }
+            ]
+          },
+          {
+            "line_regex": "(?i)^\\s*[>❯]\\s*(?:trust\\b.*|entire tool)\\s*$",
+            "all": [
+              {
+                "line_regex": "(?i)^\\s*(?:[>❯]\\s*)?(?:trust )?entire tool(?:\\s+\\([^\\n]*\\))?(?:\\s+(?:session|workspace|always))?\\s*$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "tool approval",
+          "approve all pending",
+          "configure individually (agent monitor)",
+          "exit (cancel subagents)"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "to navigate",
+          "to submit",
+          "esc to cancel"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(4)",
+        "contains": [
+          "kiro is working",
+          "type to steer",
+          "ctrl+s to queue"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "osc_title",
+        "regex": "^[◐◓◑◒] kiro:"
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "regex": "(?im)(?:^|\\n)[ \\t]*[-─]+[ \\t]*\\n[^\\n]*requires\\s+approval\\s*[·.]\\s*modify\\s+request[ \\t]*\\n(?:[ \\t]*\\n|[^\\n]*[^\\s─-][^\\n]*\\n)*?[ \\t]*[>›][ \\t]*[^\\n]*\\n(?:[ \\t]*\\n|[^\\n]*[^\\s─-][^\\n]*\\n)*[ \\t]*[-─]+[ \\t]*\\n[ \\t]*esc[ \\t]+to[ \\t]+close[ \\t]*\\n?\\z"
+      }
+    ]
+  },
+  {
+    "process": [
+      "letta",
+      "letta-code"
+    ],
+    "app": "letta",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "osc_title",
+        "contains": [
+          "Action Required"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(20)",
+        "contains": [
+          "Run this command?",
+          "Enter to select · Esc to cancel"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "line_regex": "^\\s*(?:\\S+\\s+)+is(?: \\S+)*… \\((?:esc to interrupt(?: · .*)?|interrupting)\\)\\s*$"
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "line_regex": "^\\s*(?:└\\s*)?Running\\.\\.\\.\\s*(?:\\(.*\\))?$"
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(8)",
+        "any": [
+          {
+            "line_regex": "^\\s*›\\s*$"
+          },
+          {
+            "line_regex": "^\\s*›\\s+Try\\s+\""
+          }
+        ],
+        "not": {
+          "any": [
+            {
+              "line_regex": "^\\s*(?:\\S+\\s+)+is(?: \\S+)*… \\((?:esc to interrupt(?: · .*)?|interrupting)\\)\\s*$"
+            },
+            {
+              "line_regex": "^\\s*(?:└\\s*)?Running\\.\\.\\.\\s*(?:\\(.*\\))?$"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "process": [
+      "maki"
+    ],
+    "app": "maki",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "permission required"
+        ],
+        "any": [
+          {
+            "contains": [
+              "y allow",
+              "n deny"
+            ]
+          },
+          {
+            "contains": [
+              "confirm allow"
+            ]
+          },
+          {
+            "contains": [
+              "confirm deny"
+            ]
+          },
+          {
+            "contains": [
+              "enter deny",
+              "esc cancel"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "contains": [
+          "plan complete",
+          "enter confirm"
+        ],
+        "any": [
+          {
+            "contains": [
+              "space toggle parallel"
+            ]
+          },
+          {
+            "contains": [
+              "edit plan"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(1)",
+        "line_regex": "^( [\\x{2800}-\\x{28FF}]){1,2} \\[(BUILD|PLAN|BASH)\\]"
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(1)",
+        "line_regex": "^ \\[(BUILD|PLAN|BASH)\\]"
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(3)",
+        "line_regex": "^❯ ",
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "queue another prompt"
+              ]
+            },
+            {
+              "line_regex": "^( [\\x{2800}-\\x{28FF}]){1,2} "
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "process": [
+      "muse",
+      "muse-code",
+      "muse-cli"
+    ],
+    "app": "muse",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(12)",
+        "contains": [
+          "Do you trust this workspace?"
+        ],
+        "any": [
+          {
+            "contains": [
+              "Trust and continue"
+            ]
+          },
+          {
+            "contains": [
+              "Use Up/Down"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "bottom_non_empty_lines(8)",
+        "any": [
+          {
+            "contains": [
+              "Enter to select",
+              "Tab for an optional note"
+            ]
+          },
+          {
+            "contains": [
+              "Enter to toggle",
+              "Esc to interrupt"
+            ]
+          }
+        ]
+      },
+      {
+        "skip": true,
+        "region": "bottom_non_empty_lines(8)",
+        "any": [
+          {
+            "contains": [
+              "enter confirm",
+              "esc go back"
+            ]
+          },
+          {
+            "contains": [
+              "enter save",
+              "esc go back"
+            ]
+          },
+          {
+            "contains": [
+              "space toggle",
+              "esc close",
+              "type filter"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "contains": [
+          "esc to interrupt"
+        ],
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "Enter to select",
+                "Tab for an optional note"
+              ]
+            },
+            {
+              "contains": [
+                "Enter to toggle",
+                "Esc to interrupt"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(8)",
+        "any": [
+          {
+            "contains": [
+              "Allow this stage once",
+              "Always allow in this workspace"
+            ]
+          },
+          {
+            "contains": [
+              "Allow once",
+              "Allow for this session"
+            ]
+          },
+          {
+            "contains": [
+              "Yes, proceed",
+              "Yes, don't ask again this session"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(5)",
+        "any": [
+          {
+            "line_regex": "^\\s*⟩\\s*$"
+          },
+          {
+            "line_regex": "^\\s*⟩\\s+\\S"
+          }
+        ],
+        "not": {
+          "any": [
+            {
+              "contains": [
+                "esc to interrupt"
+              ]
+            },
+            {
+              "contains": [
+                "Enter to select",
+                "Tab for an optional note"
+              ]
+            },
+            {
+              "contains": [
+                "Enter to toggle",
+                "Esc to interrupt"
+              ]
+            },
+            {
+              "contains": [
+                "enter confirm",
+                "esc go back"
+              ]
+            },
+            {
+              "contains": [
+                "enter save",
+                "esc go back"
+              ]
+            },
+            {
+              "contains": [
+                "space toggle",
+                "esc close",
+                "type filter"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(3)",
+        "line_regex": "^\\s*\\S+ · (none|minimal|low|medium|high|xhigh|ultra) · ",
+        "not": {
+          "contains": [
+            "esc to interrupt"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "process": [
+      "opencode",
+      "opencode2",
+      "open-code"
+    ],
+    "app": "opencode",
+    "rules": [
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "△ Permission required"
+            ]
+          },
+          {
+            "contains": [
+              "esc dismiss"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "↑↓ select"
+                ]
+              },
+              {
+                "contains": [
+                  "⇆ tab"
+                ]
+              }
+            ],
+            "all": [
+              {
+                "any": [
+                  {
+                    "contains": [
+                      "enter confirm"
+                    ]
+                  },
+                  {
+                    "contains": [
+                      "enter submit"
+                    ]
+                  },
+                  {
+                    "contains": [
+                      "enter toggle"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "esc to interrupt"
+            ]
+          },
+          {
+            "contains": [
+              "ctrl+c to interrupt"
+            ]
+          },
+          {
+            "contains": [
+              "press esc to interrupt"
+            ]
+          },
+          {
+            "line_regex": "(?i).*opencode.*esc (again to )?interrupt"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "regex": "(■|⬝){4}"
+      }
+    ]
+  },
+  {
+    "process": [
+      "pi"
+    ],
+    "app": "pi",
+    "rules": [
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "Working..."
+            ]
+          },
+          {
+            "line_regex": "^[⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏] Working$"
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(12)",
+        "any": [
+          {
+            "line_regex": "^── [⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏] Working ─+$"
+          },
+          {
+            "line_regex": "^[⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏] Working$"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "process": [
+      "qodercli",
+      "qoderclicn",
+      "qoder",
+      "qodercn"
+    ],
+    "app": "qoder",
+    "rules": [
+      {
+        "state": "blocked",
+        "weak": true,
+        "region": "whole_recent",
+        "any": [
+          {
+            "contains": [
+              "waiting for user confirmation"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "yes"
+                ]
+              },
+              {
+                "contains": [
+                  "no"
+                ]
+              },
+              {
+                "contains": [
+                  "allow"
+                ]
+              },
+              {
+                "contains": [
+                  "reject"
+                ]
+              }
+            ]
+          },
+          {
+            "contains": [
+              "awaiting approval"
+            ],
+            "any": [
+              {
+                "contains": [
+                  "allow"
+                ]
+              },
+              {
+                "contains": [
+                  "reject"
+                ]
+              }
+            ]
+          },
+          {
+            "contains": [
+              "permission required"
+            ]
+          },
+          {
+            "contains": [
+              "allow once or always?"
+            ]
+          },
+          {
+            "contains": [
+              "asking user"
+            ]
+          },
+          {
+            "contains": [
+              "enter your response"
+            ]
+          },
+          {
+            "contains": [
+              "review your answers:"
+            ]
+          },
+          {
+            "contains": [
+              "shell awaiting input"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "contains": [
+          "(esc to cancel,"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "whole_recent",
+        "line_regex": "^\\s*[\\x{2800}-\\x{28FF}]\\s+.*\\p{L}"
+      }
+    ]
+  },
+  {
+    "process": [
+      "qwen",
+      "qwen-code"
+    ],
+    "app": "qwen",
+    "rules": [
+      {
+        "state": "working",
+        "region": "osc_title",
+        "contains": [
+          "◐"
+        ]
+      },
+      {
+        "state": "blocked",
+        "region": "osc_title",
+        "contains": [
+          "✳"
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(20)",
+        "line_regex": "^\\s*⠏\\s+.*\\.\\.\\.\\s*$",
+        "any": [
+          {
+            "contains": [
+              "Waiting for user confirmation..."
+            ]
+          },
+          {
+            "contains": [
+              "等待用户确认..."
+            ]
+          },
+          {
+            "contains": [
+              "等待用戶確認..."
+            ]
+          },
+          {
+            "contains": [
+              "Warten auf Benutzerbestätigung..."
+            ]
+          },
+          {
+            "contains": [
+              "En attente de la confirmation de l'utilisateur..."
+            ]
+          },
+          {
+            "contains": [
+              "ユーザーの確認を待っています..."
+            ]
+          },
+          {
+            "contains": [
+              "Aguardando confirmação do usuário..."
+            ]
+          },
+          {
+            "contains": [
+              "Ожидание подтверждения от пользователя..."
+            ]
+          },
+          {
+            "contains": [
+              "Esperant la confirmació de l'usuari..."
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(20)",
+        "contains": [
+          "yes, allow once"
+        ],
+        "any": [
+          {
+            "contains": [
+              "apply this change?"
+            ]
+          },
+          {
+            "contains": [
+              "allow execution of:"
+            ]
+          },
+          {
+            "contains": [
+              "allow execution of mcp tool"
+            ]
+          },
+          {
+            "contains": [
+              "do you want to proceed?"
+            ]
+          },
+          {
+            "contains": [
+              "shell command execution"
+            ]
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "question",
+        "region": "bottom_non_empty_lines(20)",
+        "line_regex": "^\\s*[❯›]\\s*(?:\\[(?: |✓)\\]\\s*)?\\d+\\.\\s+",
+        "all": [
+          {
+            "line_regex": "^\\s*↑/↓\\s*:.*(?:Enter|Return)\\s*:"
+          }
+        ]
+      },
+      {
+        "state": "blocked",
+        "kind": "permission",
+        "region": "bottom_non_empty_lines(20)",
+        "contains": [
+          "do you trust this folder?",
+          "trust folder (",
+          "don't trust (esc)"
+        ]
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "line_regex": "^\\s*(?:[⠁-⣿]|\\.{1,2})\\s+.*\\(\\d+(?:m(?:\\s+\\d+s)?|s).*\\s·\\sesc to cancel\\)\\s*$"
+      },
+      {
+        "state": "working",
+        "region": "bottom_non_empty_lines(8)",
+        "line_regex": "^\\s*\\(\\d+(?:m(?:\\s+\\d+s)?|s)\\s·\\sesc to cancel\\)\\s*$"
+      },
+      {
+        "state": "idle",
+        "region": "bottom_non_empty_lines(30)",
+        "line_regex": "^\\s*>\\s*(?:type\\s*)?.*$",
+        "any": [
+          {
+            "contains": [
+              "type your message"
+            ]
+          },
+          {
+            "contains": [
+              "your message or @path/to/file"
+            ]
+          },
+          {
+            "contains": [
+              "@path/to/file"
+            ]
+          },
+          {
+            "contains": [
+              "type",
+              "mes",
+              "sage",
+              "@pat",
+              "h/to",
+              "/fil"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

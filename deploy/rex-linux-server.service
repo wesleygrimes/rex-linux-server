@@ -1,0 +1,13 @@
+[Unit]
+Description=Rex compatible terminal server
+After=network.target
+
+[Service]
+ExecStart=%h/.local/bin/rex-linux-server --listen unix://%h/.local/state/rex-linux-server/server.sock --extra-listen http://127.0.0.1:51433 --state-dir %h/.local/state/rex-linux-server --shell /bin/bash
+Restart=on-failure
+RestartSec=3
+KillMode=control-group
+UMask=0077
+
+[Install]
+WantedBy=default.target

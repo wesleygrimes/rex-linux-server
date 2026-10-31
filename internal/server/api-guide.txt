@@ -1,0 +1,25 @@
+Rex Linux server API
+
+GET /api/help returns the control methods and installed block APIs as JSON.
+
+Connect a WebSocket to /api/control with subprotocol rex.control.v1. Send a
+hello before making requests:
+
+{"type":"hello","client":{"kind":"cli","name":"example"}}
+
+The welcome contains a client ID and reconnect token. Requests have an ID,
+method and payload:
+
+{"type":"request","id":"1","method":"session.list","payload":{}}
+
+Responses carry the request ID and either payload or error. Events can arrive
+between responses. Attach to a session before invoking its session or block
+methods. Use session.bootstrap to subscribe and choose a session at startup.
+
+Request a terminal data ticket with data.connect, then connect to /api/data
+using rex.data.terminal.v1. This output stream starts with a binary Ghostty
+snapshot. Terminal input uses the control API.
+
+Use an authenticated Tailscale connection for remote access. Local Unix sockets
+also support server administration. Sessions keep running after a client
+disconnects and end when the server stops.

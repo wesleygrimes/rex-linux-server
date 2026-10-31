@@ -1,0 +1,397 @@
+[
+  {
+    "label": "session.float_block",
+    "value": {
+      "error": null,
+      "result": {
+        "layer_id": "FLOAT_A",
+        "revision": 2
+      }
+    }
+  },
+  {
+    "label": "session.float_block",
+    "value": {
+      "error": {
+        "code": "internal",
+        "message": "block A is already in floating layer FLOAT_A",
+        "status": 500
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "session.resize_layer",
+    "value": {
+      "error": {
+        "code": "internal",
+        "message": "cannot resize tiled layer TILED",
+        "status": 500
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "session.raise_layer",
+    "value": {
+      "error": {
+        "code": "internal",
+        "message": "cannot reorder tiled layer TILED",
+        "status": 500
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "session.new_layer",
+    "value": {
+      "error": {
+        "code": "bad_request",
+        "message": "input: validating: layout is required",
+        "status": 400
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "session.zoom_block",
+    "value": {
+      "error": null,
+      "result": {
+        "block_id": "A",
+        "revision": 3,
+        "zoomed": true
+      }
+    }
+  },
+  {
+    "label": "session.focus_next_pane",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 3
+      }
+    }
+  },
+  {
+    "label": "single pane focus preserves zoom",
+    "value": {
+      "focus": "A",
+      "layers": [
+        {
+          "blocks": [],
+          "bounds": {
+            "h": 1,
+            "w": 1,
+            "x": 0,
+            "y": 0
+          },
+          "id": "TILED",
+          "kind": "tiled"
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "A",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "a",
+              "rect": {
+                "h": 1,
+                "w": 1,
+                "x": 0,
+                "y": 0
+              }
+            }
+          ],
+          "bounds": {
+            "h": 0.5,
+            "w": 0.5,
+            "x": 0.1,
+            "y": 0.1
+          },
+          "id": "FLOAT_A",
+          "kind": "floating"
+        }
+      ],
+      "revision": 3,
+      "zoom": "A"
+    }
+  },
+  {
+    "label": "session.new_layer",
+    "value": {
+      "error": null,
+      "result": {
+        "block_ids": [
+          "B"
+        ],
+        "layer_id": "FLOAT_B",
+        "revision": 4
+      }
+    }
+  },
+  {
+    "label": "session.zoom_block",
+    "value": {
+      "error": null,
+      "result": {
+        "block_id": "A",
+        "revision": 5,
+        "zoomed": false
+      }
+    }
+  },
+  {
+    "label": "session.focus_direction",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 6
+      }
+    }
+  },
+  {
+    "label": "right across floating layers",
+    "value": {
+      "focus": "B",
+      "layers": [
+        {
+          "blocks": [],
+          "bounds": {
+            "h": 1,
+            "w": 1,
+            "x": 0,
+            "y": 0
+          },
+          "id": "TILED",
+          "kind": "tiled"
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "A",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "a",
+              "rect": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.1,
+                "y": 0.1
+              }
+            }
+          ],
+          "bounds": {
+            "h": 0.5,
+            "w": 0.5,
+            "x": 0.1,
+            "y": 0.1
+          },
+          "id": "FLOAT_A",
+          "kind": "floating"
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "B",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "b",
+              "rect": {
+                "h": 0.3,
+                "w": 0.3,
+                "x": 0.6,
+                "y": 0.6
+              }
+            }
+          ],
+          "bounds": {
+            "h": 0.3,
+            "w": 0.3,
+            "x": 0.6,
+            "y": 0.6
+          },
+          "id": "FLOAT_B",
+          "kind": "floating"
+        }
+      ],
+      "revision": 6,
+      "zoom": null
+    }
+  },
+  {
+    "label": "session.focus_direction",
+    "value": {
+      "error": null,
+      "result": {
+        "revision": 7
+      }
+    }
+  },
+  {
+    "label": "right wraps",
+    "value": {
+      "focus": "A",
+      "layers": [
+        {
+          "blocks": [],
+          "bounds": {
+            "h": 1,
+            "w": 1,
+            "x": 0,
+            "y": 0
+          },
+          "id": "TILED",
+          "kind": "tiled"
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "A",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "a",
+              "rect": {
+                "h": 0.5,
+                "w": 0.5,
+                "x": 0.1,
+                "y": 0.1
+              }
+            }
+          ],
+          "bounds": {
+            "h": 0.5,
+            "w": 0.5,
+            "x": 0.1,
+            "y": 0.1
+          },
+          "id": "FLOAT_A",
+          "kind": "floating"
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "B",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "b",
+              "rect": {
+                "h": 0.3,
+                "w": 0.3,
+                "x": 0.6,
+                "y": 0.6
+              }
+            }
+          ],
+          "bounds": {
+            "h": 0.3,
+            "w": 0.3,
+            "x": 0.6,
+            "y": 0.6
+          },
+          "id": "FLOAT_B",
+          "kind": "floating"
+        }
+      ],
+      "revision": 7,
+      "zoom": null
+    }
+  },
+  {
+    "label": "session.move_block",
+    "value": {
+      "error": null,
+      "result": {
+        "created_split_id": "SPLIT1",
+        "revision": 8
+      }
+    }
+  },
+  {
+    "label": "session.move_block",
+    "value": {
+      "error": null,
+      "result": {
+        "created_split_id": "SPLIT2",
+        "removed_split_id": "SPLIT1",
+        "revision": 9
+      }
+    }
+  },
+  {
+    "label": "session.close_layer",
+    "value": {
+      "error": {
+        "code": "internal",
+        "message": "cannot close tiled layer TILED",
+        "status": 500
+      },
+      "result": null
+    }
+  },
+  {
+    "label": "after closing tiled layer",
+    "value": {
+      "focus": "A",
+      "layers": [
+        {
+          "blocks": [],
+          "bounds": {
+            "h": 1,
+            "w": 1,
+            "x": 0,
+            "y": 0
+          },
+          "id": "TILED",
+          "kind": "tiled"
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "B",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "b",
+              "rect": {
+                "h": 0.3,
+                "w": 0.15,
+                "x": 0.6,
+                "y": 0.6
+              }
+            },
+            {
+              "block_id": "A",
+              "creator_name": "com.superlogical.terminal",
+              "flavor": "com.superlogical.terminal.shell",
+              "host_id": "HOST",
+              "label": "a",
+              "rect": {
+                "h": 0.3,
+                "w": 0.15,
+                "x": 0.75,
+                "y": 0.6
+              }
+            }
+          ],
+          "bounds": {
+            "h": 0.3,
+            "w": 0.3,
+            "x": 0.6,
+            "y": 0.6
+          },
+          "id": "FLOAT_B",
+          "kind": "floating"
+        }
+      ],
+      "revision": 9,
+      "zoom": null
+    }
+  }
+]

@@ -1,0 +1,465 @@
+{
+  "bell": {
+    "type": "object",
+    "additionalProperties": false
+  },
+  "child_exited": {
+    "type": "object",
+    "properties": {
+      "exit_code": {
+        "type": "integer"
+      },
+      "error": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "exit_code"
+    ],
+    "additionalProperties": false
+  },
+  "clipboard_written": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "bytes": {
+        "type": "integer"
+      }
+    },
+    "additionalProperties": false
+  },
+  "desktop_notification": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "title",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "process_changed": {
+    "type": "object",
+    "properties": {
+      "generation": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "foreground": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "pid": {
+            "type": "integer"
+          },
+          "user_id": {
+            "type": "integer"
+          },
+          "user": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "invoked_path": {
+            "type": "string"
+          },
+          "argv0": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          },
+          "cwd": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "pid",
+          "user_id",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "ancestors": {
+        "type": [
+          "null",
+          "array"
+        ],
+        "items": {
+          "type": "object",
+          "properties": {
+            "pid": {
+              "type": "integer"
+            },
+            "user_id": {
+              "type": "integer"
+            },
+            "user": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "invoked_path": {
+              "type": "string"
+            },
+            "argv0": {
+              "type": "string"
+            },
+            "script": {
+              "type": "string"
+            },
+            "cwd": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "pid",
+            "user_id",
+            "name"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "generation",
+      "foreground"
+    ],
+    "additionalProperties": false
+  },
+  "program_status_changed": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "record": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "progress": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "minimum": 0,
+            "maximum": 255
+          },
+          "app": {
+            "type": "string"
+          },
+          "effective_app": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "owner": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "pid": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "pid",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "state",
+          "updated_at"
+        ],
+        "additionalProperties": false
+      },
+      "reason": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "record",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "program_status_removed": {
+    "type": "object",
+    "properties": {
+      "ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "reason": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "ids",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "progress_report": {
+    "type": "object",
+    "properties": {
+      "state": {
+        "type": "string"
+      },
+      "progress": {
+        "type": [
+          "null",
+          "integer"
+        ],
+        "minimum": 0,
+        "maximum": 255
+      }
+    },
+    "required": [
+      "state"
+    ],
+    "additionalProperties": false
+  },
+  "pwd_changed": {
+    "type": "object",
+    "properties": {
+      "pwd": {
+        "type": "string"
+      },
+      "owner": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "pid": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "pid",
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "pwd"
+    ],
+    "additionalProperties": false
+  },
+  "selection_copied": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "text"
+    ],
+    "additionalProperties": false
+  },
+  "size_changed": {
+    "type": "object",
+    "properties": {
+      "columns": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "rows": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "cell_width_px": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "cell_height_px": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "owner": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "principal": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "transport": {
+            "type": "string"
+          },
+          "display": {
+            "type": "string"
+          },
+          "remote_addr": {
+            "type": "string"
+          },
+          "uid": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "gid": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "pid": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "sid": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "string"
+          },
+          "login_name": {
+            "type": "string"
+          },
+          "node": {
+            "type": "string"
+          },
+          "tags": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "path": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "transport",
+          "display"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "columns",
+      "rows",
+      "cell_width_px",
+      "cell_height_px",
+      "owner"
+    ],
+    "additionalProperties": false
+  },
+  "title_changed": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "owner": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "pid": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "pid",
+          "name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "title"
+    ],
+    "additionalProperties": false
+  },
+  "url_clicked": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "url"
+    ],
+    "additionalProperties": false
+  }
+}
